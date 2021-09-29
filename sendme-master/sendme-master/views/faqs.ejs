@@ -1,0 +1,65 @@
+<%- include('partials/header'); %>
+
+    <div class="header">
+        <a href="/" class="b">
+            <img src="/logo.png" alt="logo">
+            TaskMasters
+        </a>
+    </div>
+
+    <div class="terms">
+        <h4>FAQ's</h4>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Where is TaskMasters available?
+                    </button>
+                    </h2>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        TaskMasters is available in over 3,400 cities in the U.S., Canada, and Europe, TaskMasters is 
+                        about connecting people with possibilities: bigger savings accounts, wider nets, 
+                        stronger communities, and happier days.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How long does it take to start working with TaskMasters
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Our signup process takes just a few minutes. After signing up, it’ll take 1-2 weeks to get your account fully activated
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What's TaskMasters like?
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Once you receive a delivery opportunity, you'll see where it is and what it will take, and can choose to 
+                        accept or reject it. Once you accept, there are generally three steps, all of which are clearly outlined:
+                        <p>1) Go to errand destination</p>
+                        <p>2) Accomplish errand</p>
+                        <p>3) Get paid</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('partials/footer'); %>

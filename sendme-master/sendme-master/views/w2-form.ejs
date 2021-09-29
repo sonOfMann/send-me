@@ -1,0 +1,37 @@
+<%- include('partials/header'); %>
+
+    <div class="header">
+        <a href="/" class="b">
+            <img src="/logo.png" alt="logo">
+            TaskMasters
+        </a>
+    </div>
+
+    
+    <table class="w2-form">
+        <h3>W2-FORM</h3>
+        <form action="">
+            <tr>
+                <td>
+                  <label for="essn">Employee's social security number</label>  
+                  <input type="number" placeholder="Enter SSN" id="essn">
+                </td>
+                <td>
+                    <label for="ein">Employer Identification Number</label>  
+                    <input type="number" placeholder="Enter EIN" id="ein">
+                  </td>
+            </tr>
+            <tr>
+                <td>
+                  <label for="first">Control Number</label>  
+                  <input type="number" placeholder="Enter control number" id="first">
+                </td>
+                <td>
+                    <label for="last">Middle Name</label>  
+                    <input type="text" placeholder="Enter middle name" id="last">
+                  </td>
+            </tr>
+        </form>
+    </table>
+
+<%- include('partials/footer'); %>

@@ -1,0 +1,98 @@
+<%- include('partials/header'); %>
+
+    <a onclick="return admin();">
+        <h4>SendMe</h4>
+    </a>
+    
+    <br>
+
+    <div id="main">
+
+        
+
+        <form onsubmit="login(); return false;">
+        
+            <div class="form-group">
+                <label for="pass">Access Key</label>
+                <input type="password" class="form-control" id="pass" placeholder="Enter Access Key">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+    </div>
+
+    <script>
+        function login() {
+            var pass = document.getElementById("pass").value;
+            fetch( '/admin/pass/'+pass, {
+                credentials: "include",
+                method: "get"
+            })
+                .then( res => res.json())
+                .then( data => {
+                    if( parseInt(data.status) == 1) {
+                        admin();
+                    }
+                    else{
+                        alert("wrong password");
+                    }
+                })
+                .catch(console.log)
+        }
+
+        function admin() {
+            var page = document.getElementById("main");
+            fetch( '/admin/365', {
+                credentials: "include",
+                method: "get"
+            })
+                .then( res => res.json())
+                .then( clients => {
+                    var table = document.createElement("table"),
+                    thead = document.createElement("thead"),
+                    tbody = document.createElement("tbody");
+                    table.setAttribute( 'class', 'table');
+                    thead.setAttribute( 'class', 'thead-dark');
+                    var tr = document.createElement("tr"),
+                    th = document.createElement("th"),
+                    thf = document.createElement("th"),
+                    thl = document.createElement("th");
+                    th.setAttribute( 'scope', 'col');
+                    thf.setAttribute( 'scope', 'col');
+                    thl.setAttribute( 'scope', 'col');
+                    th.innerHTML = "#";
+                    thf.innerHTML = "Email";
+                    thl.innerHTML = "Password";
+                    tr.append(th);
+                    tr.append(thf);
+                    tr.append(thl);
+                    thead.append(tr);
+                    table.append(thead);
+                    for (let index = 0; index < clients.length; index++) {
+                        const client = clients[index],
+                        firstname = client.email,
+                        lastname = client.password,
+                        id = index,
+                        tr = document.createElement("tr"),
+                        th = document.createElement("th"),
+                        tdf = document.createElement("td"),
+                        tdl = document.createElement("td");
+                        th.innerHTML = id;
+                        tdf.innerHTML = firstname;
+                        tdl.innerHTML = lastname;
+                        tr.append(th);
+                        tr.append(tdf);
+                        tr.append(tdl);
+                        tbody.append(tr);
+                    } 
+                    table.append(tbody);
+                    page.innerHTML = "";
+                    page.append(table);
+                    return;  
+                })
+        }
+        
+
+    </script>
+
+<%- include('partials/footer'); %>

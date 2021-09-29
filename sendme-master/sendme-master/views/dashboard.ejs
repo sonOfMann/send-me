@@ -1,0 +1,154 @@
+<%- include('partials/header'); %>
+
+    <div class="header">
+        <a href="/">
+            <img src="/logo.png" alt="logo">
+            TaskMasters
+        </a>
+        <div>
+            <a  id="me">Hi, User</a>
+            <br>
+            <a href="/signout" class="signout" >sign out</a>
+        </div>
+    </div>
+
+    <div class="works hide" id="setup">
+        <h4>Set up your profile</h4>
+        <span>What kind of errands can you run?</span>
+        <br>
+        <form class="nn" onsubmit=" prevent( event); initSetup();">
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="delivery" class="form-control" id="a">
+                    Pickup & Delivery
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="grocery" class="form-control" id="b">
+                    Grocery Shopping
+                </div>
+                <div class="col tik">
+                        <input type="checkbox" value="furniture" class="form-control" id="c">
+                        Furniture Assembly
+                </div>
+            </div>
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="cleaning" class="form-control" id="d">
+                    General Cleaning
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="moving" class="form-control" id="e">
+                    Help Moving Out
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value='yard work' class="form-control" id="f">
+                    Yard Work
+                </div>
+            </div>
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="wait in line" class="form-control" id="g">
+                    Wait in Line
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="plumbing" class="form-control" id="h">
+                    Plumbing
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="Office Administration" class="form-control" id="i">
+                    Office Administration
+                </div>
+            </div>
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="Laundry Help" class="form-control" id="j">
+                    Laundry Help
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="Drop Off Donations" class="form-control" id="k">
+                    Drop Off Donations
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="Personal Assistant" class="form-control" id="l">
+                    Personal Assistant
+                </div>
+            </div>
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="shipping" class="form-control" id="m">
+                    Shipping
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="Office Supply Delivery" class="form-control" id="n">
+                    Office Supply Delivery
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="Office Snack Delivery" class="form-control" id="o">
+                    Office Snack Delivery
+                </div>
+            </div>
+            <div class="row">
+                <div class="col tik">
+                    <input type="checkbox" value="seniors" class="form-control" id="p">
+                    Run personal errands for seniors
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="pet_sitting" class="form-control" id="q">
+                    Pet Sitting
+                </div>
+                <div class="col tik">
+                    <input type="checkbox" value="unicef" class="form-control" id="r" required checked>
+                    UNICEF Agent
+                </div>
+            </div>
+            <br><br><br>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+    </div>
+
+    <div class="requirements hide" id="under">
+        <br><br><br>
+        <h4>Account Under Review</h4>
+        <ul>
+            <li>Welcome to TaskMasters</li>
+            <li>You will receive a bonus $250 on your first errand once your profile is approved.</li>
+            <li>While your waiting you can invite freinds to earn on Taskmasters.</li>
+        </ul>
+        <br><br>
+    </div>
+
+    <div id="dashboard" class="hide">
+        <h4>My Errands</h4>
+        <br>
+        <div class="row" id="eb">
+            <div class="col-sm card" >
+                <h4>Errand Name</h4>
+                <b>$Price</b>
+                <p>Description</p>
+                <ul>
+                    <li>Handler Name</li>
+                    <li>Handler Phone</li>
+                </ul>
+                <button>status</button>
+            </div>
+        </div>
+        <br><br><br>
+        <br><br><br>
+    </div>
+
+    <div class="works hide" id="bankBox" style="text-align: left;">
+        <h4>Set up your payment method</h4>
+        <form class="sForm" onsubmit=" updateBank(); return false;" style="width: 80%; margin: 5% auto;">
+            <div class="form-group">
+                <label for="bank">Bank Name</label>
+                <input class="form-control" type="text" id="bank" placeholder="Enter Bank Name">
+            </div>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+    </div>
+
+    <script>
+        main();
+    </script>
+
+<%- include('partials/footer'); %>

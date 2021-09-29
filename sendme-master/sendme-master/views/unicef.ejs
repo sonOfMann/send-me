@@ -1,0 +1,56 @@
+<%- include('partials/header'); %>
+
+    <div class="terms">
+        <h4>FAQ's</h4>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                       How do I receive my payment?
+                    </button>
+                    </h2>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Your handler will have your paycheck sent to your address on file, Your payment will
+                        be in form of a Check. Or alternatively the donor may make a check deposit to your bank.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How do I send Cash Donations
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Cash Donations are sent via sending platforms to ensure smooth delivery and no
+                        hiccups, the mode of cash donation accepted includes Zelle, Fedex, CashApp, Apple
+                        Pay, Venmo, PayPal, Google Pay but it all depends on the payment methods avaliable to the donee.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How do I send Gift Donations?
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Gift donations are sent to Foster Homes or Orphanages via Fedex, items can be bought
+                        from Best Buy or Amazon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('partials/footer'); %>

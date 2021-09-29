@@ -1,0 +1,375 @@
+@font-face{
+    font-family: 'SinkinSans';
+    src: url('/sinkinsans.otf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'SinkinSans';
+}
+body, .attention{
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+.header{
+    width: 100%;
+    padding: 12px;
+    font-size: 28px;
+    font-weight: 800;
+    display: inline-block;
+}
+.header img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 4em;
+    width: 4em;
+}
+.header .b{
+    color: #000;
+    display: inline-block;
+}
+.header *{
+    display: inline-block;
+}
+.header div{
+    float: right;
+    padding: 1rem;
+    padding-right: 2rem;
+}
+.header div a{
+    text-transform: uppercase;
+    margin: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #777;
+}
+.signin{
+    border: solid 2px #777;
+    border-radius: 4px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.attention{
+    background: url('/attention.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2em;
+}
+.about{
+    background: url('/es.jpg');
+    background-size: cover;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 4em;
+    text-align: center;
+}
+.attention .row .col-sm{
+    padding: 1em;
+}
+.attention .row .col-sm input{
+    margin: 1%;
+}
+.footer{
+    background: #000;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+}
+.footer ul {
+    margin: 1rem;
+    padding: 4px;
+}
+.footer a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    margin: 12px;
+}
+.reviews{
+    text-align: center;
+}
+.sForm {
+    border: solid 1px #bbb;
+    box-shadow: 0px 2px 3px 2px #999;
+    padding: 2rem;
+    border-radius: 4px;
+    background: #eee;
+    margin-top: 7%;
+    margin-bottom: 15%;
+}
+.sForm h4{
+    color: #000;
+    font-weight: 900;
+}
+body .sForm button, body .nn button, .row .card button{ 
+    background: #777;
+    border-color: #777;
+}
+body .nn button{
+    float: right;
+}
+.sendme h4{
+    background: #000;
+    color: #fff;
+    width: fit-content;
+    padding: 12px;
+}
+.sendme div{
+    margin: 2% auto;
+    margin-top: 15%;
+    width: 80%;
+    display: block;
+    text-align: justify;
+    background: #eee;
+    padding: 2rem;
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 4px;
+}
+body .sForm button:hover, body .sForm button:active{
+    background: #000;
+    border-color: #000;
+}
+.reviews div {
+    width: 35%;
+    margin: 2%;
+    display: inline-block;
+    overflow: hidden;
+    border: solid 1px #ddd;
+    box-shadow: 0px 2px 3px 2px #ccc;
+    padding: 2rem;
+    border-radius: 4px;
+}
+.reviews div img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 1%;
+}
+.reviews div span.main{
+    width: 70%;
+    margin-left: 1%;
+    float: right;
+    text-align: left;
+    font-size: 16px;
+    line-height: 22px;
+}
+.reviews div img, .reviews div span.main{
+    display: inline-block;
+    clear: none;
+}
+.reviews div li{
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 7%;
+    text-align: left;
+    font-weight: 700;
+    margin-left: 3%;
+}
+.reviews div li *{
+    display: block;
+}
+.works{
+    text-align: center;
+    padding: 4em;
+}
+.works h4{
+    color: #665;
+}
+.works div div{
+    text-align: center;
+}
+.works div div img {
+    height: 7rem;
+    width: 7rem;
+    display: block;
+    margin: 2% auto;
+}
+.works div div a, .works div div a:hover, .works div div a:active{
+    font-weight: 900;
+    color: #665;
+    margin-bottom: 8%;
+}
+.works div div span{
+    display: block;
+    text-align: justify;
+    font-size: 14px;
+    color: #777;
+}
+.requirements{
+    background-color: #000;
+    padding: 5em;
+    color: #fff;
+}
+.requirements ul{
+    margin-left: 7%;
+}
+.terms{
+    margin: 5% auto;
+    width: 60%;
+    display: block;
+    text-align: justify;
+}
+.terms p{
+    font-size: 12px;
+}
+.terms li{
+    list-style: none;
+    font-size: 12px;
+}
+body .saying div span{
+    font-size: 12px;
+}
+.round img{
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+}
+.round p{
+    font-size: 14px;
+}
+#main{
+    margin: 3% auto;
+    display: block;
+    position: relative;
+    width: 90%;
+    overflow-x: scroll;
+}
+#main table{
+    width: 100%;
+    margin: 0;
+    display: block;
+    position: relative;
+}
+div.hide{
+    display: none;
+}
+#not, #yes{
+    padding: 1rem; 
+    border-radius: 4px; 
+    display: none; 
+    width: 100%;
+}
+#not{
+    color: #f00; 
+    background: pink; 
+    border: solid #f09; 
+}
+#yes{
+    color: #fff; 
+    background: #105b05; 
+    border: solid #105b05; 
+}
+body div.tik{
+    text-align: left;
+    margin: 1rem;
+}
+body div.tik * {
+    display: inline-block;
+    margin: 4px;
+    vertical-align: middle;
+    width: fit-content;
+    height: fit-content;
+}
+.row .card{
+    max-width: 30%;
+    margin: 3%;
+}
+.row .card{
+    padding: 1rem;
+}
+#dashboard{
+    width: 90%;
+    margin: 4% auto;
+}
+.card ul li, .card ul a{
+    list-style: none;
+    margin-left: 3%;
+    font-size: 14px;
+}
+.row .card button{
+    width: fit-content;
+    color: #fff;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-size: 12px;
+}
+table.w2-form{
+    padding: 3rem;
+    width: 97%;
+    margin: 1% auto;
+    border: solid 2px #000;
+    border-radius: 2px;
+    display: block;
+}
+@media (max-width: 768px) {
+    .attention{
+        padding: 1rem;
+    }
+    .sendme div {
+        margin: 1% auto;
+        width: 97%;
+        display: block;
+    }
+    #body main{
+        width: 80%;
+    }
+    body .works .row{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    body .works .row div.col, .reviews div{
+        width: 80%;
+        margin: 2% auto;
+        display: block
+    }
+    body #eb div.card{
+        width: 45%;
+        margin: 2%;
+        display: block;
+        max-width: 100%;
+    }
+}
+@media (max-width: 520px){
+    .header div{
+        float: none;
+        display: block;
+    }
+    .reviews div, #eb{
+        width: 97%;
+        margin: 1% auto;
+        display: block;
+    }
+    .reviews div img{
+        display: block;
+        margin: 1% auto;
+    }
+    .reviews div span{
+        width: 95%;
+        margin: 2% auto;
+        display: block;
+    }
+    body #eb div.card{
+        width: 100%;
+        margin: 1%;
+        display: block;
+        max-width: 100%;
+    }
+    body #main{
+        width: 90%;
+        margin: 2% auto;
+    }
+}

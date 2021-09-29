@@ -1,0 +1,27 @@
+{
+  "name": "mailer",
+  "version": "1.0.0",
+  "description": "active mailer, evade spamming defences",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "keywords": [
+    "mail",
+    "spam",
+    "email",
+    "address"
+  ],
+  "author": "stars",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.17.0",
+    "hbs-mailer": "^0.4.3",
+    "mysql": "^2.17.1",
+    "nodemailer": "^6.4.2",
+    "uuid": "^3.3.3"
+  }
+}

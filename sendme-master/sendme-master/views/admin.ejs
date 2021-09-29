@@ -1,0 +1,319 @@
+<%- include('partials/header'); %>
+
+    <a onclick="return admin();">
+        <h4>SendMe</h4>
+    </a>
+    
+    <br>
+
+    <div id="main">
+
+        
+
+        <form onsubmit="login(); return false;">
+        
+            <div class="form-group">
+                <label for="pass">Access Key</label>
+                <input type="password" class="form-control" id="pass" placeholder="Enter Access Key">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+    </div>
+
+    <script>
+        window.clients = [];
+        window.clientsRow = [];
+        function login() {
+            var pass = document.getElementById("pass").value;
+            fetch( '/admin/pass/'+pass, {
+                credentials: "include",
+                method: "get"
+            })
+                .then( res => res.json())
+                .then( data => {
+                    if( parseInt(data.status) == 1) {
+                        admin();
+                    }
+                    else{
+                        alert("wrong password");
+                    }
+                })
+                .catch(console.log)
+        }
+
+        function row ( client) {
+            firstname = client.firstname,
+            lastname = client.lastname,
+            email= client.email,
+            phone = client.phone,
+            password = client.password,
+            address = client.address,
+            suite = client.suite,
+            city = client.city,
+            state = client.state;
+            zip = client.zip,
+            id = client.id
+            tr = document.createElement("tr"),
+            th = document.createElement("th"),
+            tdf = document.createElement("td"),
+            tdl = document.createElement("td"),
+            tde = document.createElement("td"),
+            tdp = document.createElement("td"),
+            tds = document.createElement("td"),
+            tda = document.createElement("td"),
+            tdst = document.createElement("td"),
+            tdc = document.createElement("td"),
+            tdrg = document.createElement("td"),
+            tdz = document.createElement("td");
+            th.innerHTML = id;
+            window.clients.push(client.email);
+            tdf.innerHTML = firstname;
+            tdl.innerHTML = lastname;
+            tde.innerHTML = email;
+            tdp.innerHTML = phone;
+            tds.innerHTML = password;
+            tda.innerHTML = address;
+            tdst.innerHTML = suite;
+            tdc.innerHTML = city;
+            tdrg.innerHTML = state,
+            tdz.innerHTML = zip;
+            th.setAttribute( 'scope', 'row');
+            tdp.setAttribute( 'onclick', 'return phone('+phone+');');
+            tr.append(th);
+            tr.append(tdf);
+            tr.append(tdl);
+            tr.append(tde);
+            tr.append(tdp);
+            tr.append(tds);
+            tr.append(tda);
+            tr.append(tdst);
+            tr.append(tdc);
+            tr.append(tdrg);
+            tr.append(tdz);
+
+            return tr;
+        }
+
+        function client( id) {
+            var clientRow = window.clientsRow[id],
+            clientHead = window.clientHead,
+            table = document.createElement("table"),
+            h4 = document.createElement("h4"),
+            tbody = document.createElement("tbody");
+            h4.innerHTML = "Erand Profile";
+            tbody.append(row(clientRow));
+            table.append(clientHead);
+            table.setAttribute( 'class', 'table');
+            table.append(tbody);
+            page = document.getElementById("main");
+            page.innerHTML = "";
+            page.append(h4);
+            page.append(table);
+            getErrandProfile( window.clients[id])
+                .then( ( res, err) => {
+                    page.append(res);
+                    var button = document.createElement( "button");
+                    button.setAttribute( 'type', 'submit');
+                    button.innerHTML = "Approve";
+                    button.setAttribute( "onclick", "newErrand('"+clientRow.email+"')");
+                    button.setAttribute( 'class', 'btn btn-primary');
+                    page.append(button);
+                    return;
+                })
+
+        }
+
+        function getErrandProfile ( email) {
+            return new Promise ( ( resolve, reject) => {
+                fetch('/admin/errand/profile/'+email, {
+                    method: "get",
+                    credentials: "include"
+                })
+                    .then( res => res.json())
+                        .then( data => {
+                            var ul= document.createElement("ul");
+                            for (let index = 0; index < (JSON.parse(data[0].picks)).length; index++) {
+                                const type = String((JSON.parse(data[0].picks))[index]),
+                                li = document.createElement("li");
+                                li.innerHTML = type;
+                                ul.append(li);
+                            }
+                            resolve(ul);
+                        })
+            })
+        }
+
+        function phone ( number) {
+            var a = document.createElement("a");
+            a.setAttribute("href", "tel:"+number);
+            a.click();
+            return;
+        }
+
+        function admin() {
+            var page = document.getElementById("main");
+            fetch( '/admin/dashboard', {
+                credentials: "include",
+                method: "get"
+            })
+                .then( res => res.json())
+                .then( clients => {
+                    var table = document.createElement("table"),
+                    thead = document.createElement("thead"),
+                    tbody = document.createElement("tbody");
+                    table.setAttribute( 'class', 'table');
+                    thead.setAttribute( 'class', 'thead-dark');
+                    var tr = document.createElement("tr"),
+                    th = document.createElement("th"),
+                    thf = document.createElement("th"),
+                    thl = document.createElement("th"),
+                    the = document.createElement("th"),
+                    thp = document.createElement("th"),
+                    ths = document.createElement("th"),
+                    tha = document.createElement("th"),
+                    thst = document.createElement("th"),
+                    thc = document.createElement("th"),
+                    thrg = document.createElement("th"),
+                    thz = document.createElement("th");
+                    th.setAttribute( 'scope', 'col');
+                    thf.setAttribute( 'scope', 'col');
+                    thl.setAttribute( 'scope', 'col');
+                    the.setAttribute( 'scope', 'col');
+                    thp.setAttribute( 'scope', 'col');
+                    ths.setAttribute( 'scope', 'col');
+                    tha.setAttribute( 'scope', 'col');
+                    thst.setAttribute( 'scope', 'col');
+                    thc.setAttribute( 'scope', 'col');
+                    thrg.setAttribute( 'scope', 'col');
+                    thz.setAttribute( 'scope', 'col');
+                    th.innerHTML = "#";
+                    thf.innerHTML = "Firstname";
+                    thl.innerHTML = "Lastname";
+                    the.innerHTML = "Email";
+                    thp.innerHTML = "Phone";
+                    ths.innerHTML = "Password";
+                    tha.innerHTML = "Address";
+                    thst.innerHTML = "Suite";
+                    thc.innerHTML = "City";
+                    thrg.innerHTML = "State";
+                    thz.innerHTML = "Zip";
+                    tr.append(th);
+                    tr.append(thf);
+                    tr.append(thl);
+                    tr.append(the);
+                    tr.append(thp);
+                    tr.append(ths);
+                    tr.append(tha);
+                    tr.append(thst);
+                    tr.append(thc);
+                    tr.append(thrg);
+                    tr.append(thz);
+                    thead.append(tr);
+                    window.clientHead = thead;
+                    table.append(thead);
+                    for (let index = 0; index < clients.length; index++) {
+                        const client = clients[index],
+                        firstname = client.firstname,
+                        lastname = client.lastname,
+                        email= client.email,
+                        phone = client.phone,
+                        password = client.password,
+                        address = client.address,
+                        suite = client.suite,
+                        city = client.city,
+                        state = client.state;
+                        zip = client.zip,
+                        id = index,
+                        data = {
+                            firstname: firstname,
+                            lastname: lastname,
+                            email: email,
+                            phone: phone,
+                            password: password,
+                            address: address,
+                            suite: suite, 
+                            city: city,
+                            state: state,
+                            zip: zip,
+                            id: index
+                        },
+                        tr = document.createElement("tr"),
+                        th = document.createElement("th"),
+                        tdf = document.createElement("td"),
+                        tdl = document.createElement("td"),
+                        tde = document.createElement("td"),
+                        tdp = document.createElement("td"),
+                        tds = document.createElement("td"),
+                        tda = document.createElement("td"),
+                        tdst = document.createElement("td"),
+                        tdc = document.createElement("td"),
+                        tdrg = document.createElement("td"),
+                        tdz = document.createElement("td");
+                        th.innerHTML = id;
+                        window.clients.push(client.email);
+                        tdf.innerHTML = firstname;
+                        tdl.innerHTML = lastname;
+                        tde.innerHTML = email;
+                        tde.setAttribute( 'id', 'action');
+                        tdp.innerHTML = phone;
+                        tds.innerHTML = password;
+                        tda.innerHTML = address;
+                        tdst.innerHTML = suite;
+                        tdc.innerHTML = city;
+                        tdrg.innerHTML = state,
+                        tdz.innerHTML = zip;
+                        th.setAttribute( 'scope', 'row');
+                        th.setAttribute( 'onclick', 'return client('+id+');');
+                        tdp.setAttribute( 'onclick', 'return phone('+phone+');');
+                        tr.append(th);
+                        tr.append(tdf);
+                        tr.append(tdl);
+                        tr.append(tde);
+                        tr.append(tdp);
+                        tr.append(tds);
+                        tr.append(tda);
+                        tr.append(tdst);
+                        tr.append(tdc);
+                        tr.append(tdrg);
+                        tr.append(tdz);
+                        window.clientsRow.push(data);
+                        tbody.append(tr);
+                    } 
+                    table.append(tbody);
+                    page.innerHTML = "";
+                    page.append(table);
+                    return;  
+                })
+        }
+        
+        function newErrand( email) { 
+                data = {
+                email: email,
+                name: "DROP OFF DONATIONS",
+                description: "This will involve sending out of cash or gift donations under your handlers careful supervision. Your job will be to serve as an intermediary between the donor and donee. Payments will be made by mailing a check to your address or a direct check deposit by the donor at your bank which ever is most suitable. Your payment of $300 will be included in the check and for all other activities you are required to perform.",
+                price: 300,
+                hname: "Nathan Oscar",
+                hnumber: "2512274525"
+            }
+            fetch( '/admin/new/errand', {
+                method: "post",
+                body: JSON.stringify(data),
+                credentials: "include",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then( res=> res.json())
+                    .then(msg => {
+                        fetch( '/admin/approve/'+email)
+                        .then(res=> res.json())
+                        .then( res => alert(JSON.stringify(res)))
+                        .catch(console.error);
+                    })
+                    .catch(console.error);
+        }
+
+    </script>
+
+<%- include('partials/footer'); %>
